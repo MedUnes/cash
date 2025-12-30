@@ -25,15 +25,14 @@ func TestNewLRUCache(t *testing.T) {
 		c, err := NewLRUCache[string, int](uint64(math.MaxUint64) - 1)
 		assert.Nil(t, err)
 		assert.Equal(t, uint64(uint64(math.MaxUint64)-1), c.capacity)
-
 	})
 	t.Run("max capacity builds", func(t *testing.T) {
 		c, err := NewLRUCache[string, int](uint64(math.MaxUint64))
 		assert.Nil(t, err)
 		assert.Equal(t, uint64(math.MaxUint64), c.capacity)
-
 	})
 }
+
 func TestCache(t *testing.T) {
 	type Put struct {
 		key string

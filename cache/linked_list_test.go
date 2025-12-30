@@ -14,6 +14,7 @@ func TestNewLinkedList(t *testing.T) {
 		assert.Nil(t, l.tail)
 	})
 }
+
 func TestLinkedListAddFirst(t *testing.T) {
 	t.Run("remove", func(t *testing.T) {
 		l := newLinkedList[string, int]()
@@ -33,6 +34,7 @@ func TestLinkedListAddFirst(t *testing.T) {
 		assert.Equal(t, l.head.next.item.value, 2)
 	})
 }
+
 func TestLinkedListRemove(t *testing.T) {
 	t.Run("remove", func(t *testing.T) {
 		l := newLinkedList[string, int]()
@@ -106,6 +108,5 @@ func TestLinkedListMoveFirst(t *testing.T) {
 		assert.Equal(t, l.tail.item.value, 2)
 		assert.Equal(t, l.head.next.item.key, "a")
 		assert.Equal(t, l.head.next.item.value, 1)
-
 	})
 }

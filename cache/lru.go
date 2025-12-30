@@ -19,7 +19,6 @@ type LRUCache[K comparable, V any] struct {
 func NewLRUCache[K comparable, V any](c uint64) (*LRUCache[K, V], error) {
 	if c == 0 {
 		return nil, fmt.Errorf("capacity can not be 0")
-
 	}
 	l := &LRUCache[K, V]{}
 	l.m = make(map[K]*node[K, V])
@@ -27,6 +26,7 @@ func NewLRUCache[K comparable, V any](c uint64) (*LRUCache[K, V], error) {
 	l.records = newLinkedList[K, V]()
 	return l, nil
 }
+
 func (l *LRUCache[K, V]) Put(key K, value V) {
 	l.mu.Lock()
 	defer l.mu.Unlock()
@@ -45,6 +45,7 @@ func (l *LRUCache[K, V]) Put(key K, value V) {
 	l.records.moveToFront(node)
 	l.m[key] = node
 }
+
 func (l *LRUCache[K, V]) Get(key K) (V, bool) {
 	l.mu.Lock()
 	defer l.mu.Unlock()

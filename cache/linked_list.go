@@ -11,6 +11,7 @@ type linkedList[K comparable, V any] struct {
 func newLinkedList[K comparable, V any]() linkedList[K, V] {
 	return linkedList[K, V]{}
 }
+
 func (l *linkedList[K, V]) moveToFront(n *node[K, V]) {
 	if l.head == n {
 		return
