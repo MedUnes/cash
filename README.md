@@ -53,5 +53,14 @@ func main() {
 
 	}
 }
+```
+
+This should show something like:
+```bash
+go run main.go
+Cache entries:
+        ipsum_135kb.html: (134 Kb)
+        ipsum_145kb.html: (144 Kb)
+        ipsum_14kb.html: (13 Kb)
 
 ```
