@@ -3,7 +3,7 @@
 [![Tests](https://github.com/MedUnes/cash/actions/workflows/tests.yaml/badge.svg)](https://github.com/MedUnes/cash/actions/workflows/tests.yaml)
 [![CodeQL](https://github.com/MedUnes/cash/actions/workflows/codeql.yaml/badge.svg)](https://github.com/MedUnes/cash/actions/workflows/codeql.yaml)
 [![Trivy Security Scan](https://github.com/MedUnes/cash/actions/workflows/trivy.yaml/badge.svg)](https://github.com/MedUnes/cash/actions/workflows/trivy.yaml)
-[![codecov](https://codecov.io/gh/gin-contrib/authz/branch/master/graph/badge.svg)](https://codecov.io/gh/gin-contrib/authz)
+[![codecov](https://codecov.io/gh/medunes/cash/branch/master/graph/badge.svg)](https://codecov.io/gh/medunes/cash)
 [![Go Report Card](https://goreportcard.com/badge/github.com/medunes/cash)](https://goreportcard.com/report/github.com/medunes/cash)
 [![Go Reference](https://pkg.go.dev/badge/github.com/medunes/cash.svg)](https://pkg.go.dev/github.com/medunes/cash)
 
