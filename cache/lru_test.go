@@ -24,7 +24,7 @@ func TestNewLRUCache(t *testing.T) {
 	t.Run("just least than max capacity builds", func(t *testing.T) {
 		c, err := NewLRUCache[string, int](uint64(math.MaxUint64) - 1)
 		assert.Nil(t, err)
-		assert.Equal(t, uint64(uint64(math.MaxUint64)-1), c.capacity)
+		assert.Equal(t, uint64(math.MaxUint64)-1, c.capacity)
 	})
 	t.Run("max capacity builds", func(t *testing.T) {
 		c, err := NewLRUCache[string, int](uint64(math.MaxUint64))

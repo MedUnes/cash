@@ -18,7 +18,6 @@ func (l *linkedList[K, V]) moveToFront(n *node[K, V]) {
 	}
 	l.remove(n)
 	l.pushFront(n)
-	return
 }
 
 func (l *linkedList[K, V]) remove(n *node[K, V]) {

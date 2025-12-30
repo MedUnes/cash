@@ -38,6 +38,5 @@ func main() {
 		}
 
 		fmt.Printf("\t%s: (%d Kb)\n", name, len(string(content))/1024)
-
 	}
 }

@@ -3,5 +3,10 @@ test:
 run:
 	go run main.go
 format:
-	gofumpt -w .
-.PHONY: run test format
+	golangci-lint fmt ./...
+lint:
+	golangci-lint run ./...
+lint-fix:
+	golangci-lint run --fix ./...
+
+.PHONY: run test format lint lint-fix
