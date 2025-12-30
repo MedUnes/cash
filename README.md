@@ -3,6 +3,12 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/medunes/cash)](https://goreportcard.com/report/github.com/medunes/cash)
 [![Go Reference](https://pkg.go.dev/badge/github.com/medunes/cash.svg)](https://pkg.go.dev/github.com/medunes/cash)
 [![Tests](https://github.com/medunes/cash/actions/workflows/tests.yml/badge.svg)](https://github.com/medunes/cash/actions/workflows/tests.yml)
+[![CodeQL](https://github.com/medunes/cash/actions/workflows/codeql.yml/badge.svg)](https://github.com/medunes/cash/actions/workflows/codeql.yml)
+[![Trivy Security Scan](https://github.com/medunes/cash/actions/workflows/trivy.yml/badge.svg)](https://github.com/medunes/cash/actions/workflows/trivy.yml)
+[![codecov](https://codecov.io/gh/gin-contrib/authz/branch/master/graph/badge.svg)](https://codecov.io/gh/gin-contrib/authz)
+[![Go Report Card](https://goreportcard.com/badge/github.com/medunes/cash)](https://goreportcard.com/report/github.com/medunes/cash)
+[![GoDoc](https://godoc.org/github.com/medunes/cash?status.svg)](https://godoc.org/github.com/medunes/cash)
+
 
 * An implementation of the [LRU Cache](https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU) data structure.
 * Read/Write are in O(1) time complexity.
@@ -62,5 +68,4 @@ Cache entries:
         ipsum_135kb.html: (134 Kb)
         ipsum_145kb.html: (144 Kb)
         ipsum_14kb.html: (13 Kb)
-
 ```
