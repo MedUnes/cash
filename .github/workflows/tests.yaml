@@ -1,4 +1,4 @@
-name: Run Tests
+name: Tests
 
 on:
   push:
@@ -60,7 +60,7 @@ jobs:
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-go-
-      - name: Run Tests
+      - name: Tests
         run: |
           go run gotest.tools/gotestsum@latest --format=testdox  -- -covermode=atomic -coverprofile=coverage.out ./...
 
