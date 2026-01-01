@@ -1,5 +1,7 @@
 test:
 	go run gotest.tools/gotestsum@latest --format=testdox
+benchmark:
+	go test -bench=. -benchmem ./cache
 run:
 	go run main.go
 format:
