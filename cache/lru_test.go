@@ -14,6 +14,7 @@ func TestNewLRUCache(t *testing.T) {
 		assert.Nil(t, c)
 		assert.Error(t, err)
 	})
+
 	t.Run("least minimal capacity builds", func(t *testing.T) {
 		c, err := NewLRUCache[string, int](1)
 		assert.Nil(t, err)
