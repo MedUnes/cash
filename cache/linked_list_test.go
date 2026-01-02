@@ -38,6 +38,10 @@ func TestLinkedListAddFirst(t *testing.T) {
 func TestLinkedListRemove(t *testing.T) {
 	t.Run("remove", func(t *testing.T) {
 		l := newLinkedList[string, int]()
+		l.remove(nil)
+		assert.Nil(t, l.head)
+		assert.Nil(t, l.tail)
+
 		nodes := []*node[string, int]{
 			{nil, nil, item[string, int]{"a", 1}},
 			{nil, nil, item[string, int]{"b", 2}},
