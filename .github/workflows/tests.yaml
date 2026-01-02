@@ -63,7 +63,7 @@ jobs:
       - name: Tests
         run: |
           go run gotest.tools/gotestsum@latest --format=testdox  -- -covermode=atomic -coverprofile=coverage.txt ./...
-
+          grep -v "main.go" coverage.txt > coverage.tmp && mv coverage.tmp coverage.txt
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:

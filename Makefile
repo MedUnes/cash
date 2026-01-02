@@ -1,5 +1,6 @@
 test:
-	go run gotest.tools/gotestsum@latest --format=testdox
+	go run gotest.tools/gotestsum@latest --format=testdox  -- -covermode=atomic -coverprofile=coverage.txt ./...
+	grep -v "main.go" coverage.txt > coverage.tmp && mv coverage.tmp coverage.txt
 benchmark:
 	go test -bench=. -benchmem ./cache
 run:
