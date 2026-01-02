@@ -62,9 +62,11 @@ jobs:
             ${{ runner.os }}-go-
       - name: Tests
         run: |
-          go run gotest.tools/gotestsum@latest --format=testdox  -- -covermode=atomic -coverprofile=coverage.out ./...
+          go run gotest.tools/gotestsum@latest --format=testdox  -- -covermode=atomic -coverprofile=coverage.txt ./...
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
           flags: ${{ matrix.os }},go-${{ matrix.go }}
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: medunes/cash
