@@ -7,10 +7,8 @@ import (
 	"github.com/medunes/cash/cache"
 )
 
-var htmlFiles map[string]string
-
-func init() {
-	htmlFiles = map[string]string{
+func main() {
+	htmlFiles := map[string]string{
 		"file1.txt": `
 			This is a text file used to test LRU cache performance.
 			This is a text file used to test LRU cache performance.
@@ -42,9 +40,6 @@ func init() {
 			This is a text file used to test LRU cache performance.
 		`,
 	}
-}
-
-func main() {
 	c, err := cache.NewLRUCache[string, string](1000)
 	if err != nil {
 		log.Fatalf("error initializing cache (%s)", err.Error())

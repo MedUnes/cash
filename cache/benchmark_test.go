@@ -29,22 +29,24 @@ func prepareGet[K comparable, V any](cacheSize int, keyGen func(int) K, valGen f
 }
 
 func BenchmarkPutIntKey(b *testing.B) {
-	cacheSize := 100
-	m := preparePut[int, int](cacheSize, func(i int) int { return i }, func(i int) int { return i })
-	c, _ := NewLRUCache[int, int](uint64(cacheSize))
+	cacheSize := uint64(100)
+	m := preparePut[int, int](int(cacheSize), func(i int) int { return i }, func(i int) int { return i })
+	c, _ := NewLRUCache[int, int](cacheSize)
 	b.ResetTimer()
 	for i := range b.N {
-		c.Put(i%cacheSize, m[i%cacheSize])
+		c.Put(i%int(cacheSize), m[i%int(cacheSize)])
 	}
 }
 
 func BenchmarkPutStringKey(b *testing.B) {
-	cacheSize := 100
-	m := preparePut[int, string](cacheSize, func(i int) int { return i }, func(i int) string { return fmt.Sprintf("key-%d", i) })
-	c, _ := NewLRUCache[string, int](uint64(cacheSize))
+	cacheSize := uint64(1000)
+	m := preparePut[int, string](int(cacheSize), func(i int) int { return i }, func(i int) string {
+		return fmt.Sprintf("key-%d", i)
+	})
+	c, _ := NewLRUCache[string, int](cacheSize)
 	b.ResetTimer()
 	for i := range b.N {
-		c.Put(m[i%cacheSize], i)
+		c.Put(m[i%int(cacheSize)], i)
 	}
 }
 
@@ -59,8 +61,12 @@ func BenchmarkGetIntKey(b *testing.B) {
 
 func BenchmarkGetStringKey(b *testing.B) {
 	cacheSize := 100
-	m := preparePut[int, string](cacheSize, func(i int) int { return i }, func(i int) string { return fmt.Sprintf("key-%d", i) })
-	c := prepareGet[string, int](cacheSize, func(i int) string { return fmt.Sprintf("key-%d", i) }, func(i int) int { return i })
+	m := preparePut[int, string](cacheSize, func(i int) int { return i }, func(i int) string {
+		return fmt.Sprintf("key-%d", i)
+	})
+	c := prepareGet[string, int](cacheSize, func(i int) string {
+		return fmt.Sprintf("key-%d", i)
+	}, func(i int) int { return i })
 	b.ResetTimer()
 	for i := range b.N {
 		_, _ = c.Get(m[i%cacheSize])
@@ -68,8 +74,8 @@ func BenchmarkGetStringKey(b *testing.B) {
 }
 
 func BenchmarkEviction(b *testing.B) {
-	cacheSize := 1000
-	c, _ := NewLRUCache[int, int](uint64(cacheSize))
+	cacheSize := uint64(1000)
+	c, _ := NewLRUCache[int, int](cacheSize)
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
@@ -78,8 +84,8 @@ func BenchmarkEviction(b *testing.B) {
 }
 
 func BenchmarkParallel(b *testing.B) {
-	cacheSize := 1000
-	c, _ := NewLRUCache[int, int](uint64(cacheSize))
+	cacheSize := uint64(1000)
+	c, _ := NewLRUCache[int, int](cacheSize)
 
 	b.RunParallel(func(pb *testing.PB) {
 		counter := 0
