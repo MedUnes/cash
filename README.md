@@ -9,14 +9,15 @@
 
 **cash** is a thread-safe, generic LRU (Least Recently Used) cache implementation for Go. 
 
-It is designed for high-throughput systems where Garbage Collection (GC) pauses are unacceptable. It achieves **O(1)** time complexity for all operations and **zero heap allocations** (`0 allocs/op`) during standard read/write cycles.
+- It is designed for high-throughput systems where Garbage Collection (GC) pauses are unacceptable. 
+- It achieves **O(1)** time complexity for all operations and **zero heap allocations** (`0 allocs/op`) during standard read/write cycles.
 
 ## Features
 
-* **Zero GC Overhead:** Optimized to generate **0 allocations** for `Put` (updates) and `Get` operations.
-* **Thread-Safe:** Built-in `sync.Mutex` protection ensures safety for concurrent access.
-* **Generic:** leveraging Go 1.18+ generics (`[K comparable, V any]`) for type safety without reflection.
-* **Production Ready:** 100% test coverage, validated with automated security scans (Trivy/CodeQL) and race detectors.
+* Zero GC Overhead: Optimized to generate **0 allocations** for `Put` (updates) and `Get` operations.
+* Thread-Safe: Built-in `sync.Mutex` protection ensures safety for concurrent access.
+* Generic: leveraging Go 1.18+ generics (`[K comparable, V any]`) for type safety without reflection.
+* Production Ready: 100% test coverage, validated with automated security scans (Trivy/CodeQL) and race detectors.
 
 ## Performance
 
@@ -35,7 +36,7 @@ The library maintains **0 allocs/op** even under high concurrency, ensuring that
 ## Installation
 
 ```bash
-go get [github.com/medunes/cash](https://github.com/medunes/cash)
+go get https://github.com/medunes/cash
 
 ```
 
@@ -48,7 +49,7 @@ import (
 	"fmt"
 	"log"
 
-	"[github.com/medunes/cash/cache](https://github.com/medunes/cash/cache)"
+	"github.com/medunes/cash/cache"
 )
 
 func main() {
